@@ -1,1 +1,5 @@
-import tim
+import urllib.request as r
+
+url = 'https://withpinbox.com/'
+wy = r.urlopen(url)
+
