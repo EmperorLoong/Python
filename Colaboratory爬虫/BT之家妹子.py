@@ -58,7 +58,7 @@ if __name__ == '__main__':
     zhuye = 'http://www.1btjia.com/'
     bq = yeshubiaoqian(zhuye)
     for i in bq:
-        #print(i)
+        print('正在打开此链接：',i)
         tp,mz = tupian(i)
         baocun(tp,mz)
     print('爬取完成！')
