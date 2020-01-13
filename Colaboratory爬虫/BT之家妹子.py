@@ -4,7 +4,7 @@ import re
 import os
 
 #切换到要保存的目录
-path = "/content/drive/My Drive/爬虫妹子图"
+path = "/content/drive/My Drive/爬虫妹子图片"
 os.chdir(path)
 
 #打开网页
@@ -14,7 +14,7 @@ def wangye(url):
     fh = r.get(url,headers=ua)
     return fh
 
-#找页数下的图片标签
+#找页数标签下的图片标签
 def yeshubiaoqian(zhuye):
     sr = int(input('输入需要爬取的页数：'))+1 
     bqlb = []
@@ -31,10 +31,10 @@ def yeshubiaoqian(zhuye):
 
 #找图片链接与名字
 def tupian(bq):
-    fh = wangye(i).text
+    fh = wangye(bq).text
     tp = re.findall(r'src="(htt.+?.jpg)"',fh)
     mz = re.findall(r'%s+">(.+?)</a>'%i,fh)
-    #print(len(tp))
+    print(mz[0])
     return tp,mz
 
 #保存图片
@@ -42,6 +42,7 @@ def baocun(tp,mz):
     sz = 0
     print('正在下载：',mz[0])
     print('一共：',len(tp),'张')
+
     #判断是否有重复文件夹名
     if mz[0] in os.listdir(path):
         os.mkdir(mz[0]+'重复')
