@@ -42,8 +42,14 @@ def baocun(tp,mz):
     sz = 0
     print('正在下载：',mz[0])
     print('一共：',len(tp),'张')
-    os.mkdir(mz[0])
-    os.chdir(mz[0])
+    #判断是否有重复文件夹名
+    if mz[0] in os.listdir(path):
+        os.mkdir(mz[0]+'重复')
+        os.chdir(mz[0]+'重复')
+    else:
+        os.mkdir(mz[0])
+        os.chdir(mz[0])
+
     for i in tp:
         #t.sleep(3)
         ym = wangye(i).content
