@@ -1,6 +1,5 @@
 #bt之家美女图片
 import requests as r
-import time as t
 import re
 import os
 
